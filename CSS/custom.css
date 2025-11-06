@@ -1,0 +1,205 @@
+
+/* 1. PALETA DE COLORES */
+:root {
+  --color-negro: #000000;
+  --color-bordó: #6a040f;  /* Un bordó oscuro */
+  --color-plateado: #C0C0C0; /* Plateado */
+  --color-hueso: #f5f5dc;    /* Un blanco "hueso" */
+  
+  --color-negro-transparente: rgba(10, 10, 10, 0.9);
+}
+
+/* IMAGEN DE FONDO  */
+body {
+  background-image: url('../IMG/fondo-oscuro.jpg'); 
+  background-size: cover;          
+  background-repeat: no-repeat;    
+  background-attachment: fixed;    
+  background-position: center center; 
+  background-color: var(--color-negro);
+}
+ */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Velo negro al 70% */
+  z-index: -1; 
+}
+
+/* 4. ANULACIÓN DE BOOTSTRAP (Tema Claro) */
+body {
+  --bs-body-color: var(--color-hueso);      
+  --bs-body-bg: transparent;               
+  --bs-emphasis-color: var(--color-hueso);
+  --bs-secondary-color: var(--color-plateado);
+  --bs-tertiary-color: var(--color-plateado);
+}
+
+/* 5. ESTILOS DE COMPONENTES (Navbar, Cards, etc.) */
+.navbar,
+.offcanvas,
+.card,
+footer,
+.modal-content {
+  background-color: var(--color-negro-transparente) !important;
+  border: 1px solid rgba(192, 192, 192, 0.2); 
+  color: var(--color-hueso); 
+}
+
+/* Contenido principal (<main>) */
+main {
+  background-color: transparent; 
+  box-shadow: none;              
+  padding-top: 100px; /* Espacio para el header fijo */
+}
+
+/* Títulos y Texto */
+h1, h2, h3, h4, h5,
+.display-4, .display-5,
+.lead,
+.card-title,
+.card-text {
+  color: var(--color-hueso) !important;
+}
+
+p, .text-muted, .small {
+  color: var(--color-plateado) !important;
+}
+
+/* Botones y Links */
+a {
+  color: var(--color-plateado);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-hueso);
+}
+.breadcrumb-item a {
+  color: var(--color-bordó) !important;
+  font-weight: bold;
+}
+
+.btn-dark {
+  background-color: var(--color-bordó) !important;
+  border-color: var(--color-bordó) !important;
+  color: var(--color-hueso) !important;
+}
+.btn-dark:hover {
+  background-color: #9a0612 !important; 
+  border-color: #9a0612 !important;
+}
+.btn-outline-dark {
+  color: var(--color-plateado) !important;
+  border-color: var(--color-plateado) !important;
+}
+.btn-outline-dark:hover {
+  background-color: var(--color-plateado) !important;
+  border-color: var(--color-plateado) !important;
+  color: var(--color-negro) !important;
+}
+.btn-secondary {
+  background-color: #444;
+  border-color: #555;
+}
+
+/* FORMULARIOS (Login / Registro) */
+.form-control {
+  background-color: var(--color-hueso) !important;    /* Fondo color hueso*/
+  border-color: var(--color-plateado);
+  color: var(--color-negro) !important;              /* TEXTO NEGRO */
+}
+.form-control:focus {
+  background-color: #ffffff !important; /* Un blanco más brillante al hacer foco */
+  border-color: var(--color-bordó);
+  color: var(--color-negro) !important;
+  box-shadow: 0 0 0 0.25rem rgba(106, 4, 15, 0.5); /* Sombra bordó */
+}
+.form-floating > .form-control::placeholder {
+    color: transparent;
+}
+.form-floating > .form-label {
+    color: var(--color-negro); /* Color de la etiqueta  */
+}
+.form-floating > .form-control:focus ~ .form-label,
+.form-floating > .form-control:not(:placeholder-shown) ~ .form-label {
+    color: var(--color-bordó); 
+}
+.form-check-label {
+   color: var(--color-bordó);
+}
+
+/* 7. Arreglo para Google Form (en contacto.html) */
+.iframe-container-light {
+  background-color: var(--color-hueso);
+  padding: 8px; /* Un pequeño borde */
+  border-radius: 8px;
+  border: 1px solid var(--color-plateado);
+}
+.iframe-container-light iframe {
+  border-radius: 4px; /* Redondea el iframe de adentro */
+}
+
+/* 8. Estilos del Acordeón */
+.accordion-button {
+  background-color: var(--color-negro-transparente);
+  color: var(--color-hueso);
+}
+.accordion-button:not(.collapsed) {
+  background-color: var(--color-bordó);
+  color: var(--color-hueso);
+  box-shadow: none;
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(192, 192, 192, 0.5);
+}
+.accordion-body {
+  padding: 0;
+}
+.list-group-item.list-group-item-action {
+  background-color: transparent;
+  color: var(--color-plateado);
+  padding-left: 2.5rem; 
+  border: none;
+}
+.list-group-item.list-group-item-action:hover {
+  color: var(--color-hueso);
+}
+.list-group-item.list-group-item-action.active {
+  font-weight: bold;
+  color: var(--color-hueso);
+  background-color: var(--color-bordó); 
+}
+
+/* 9. Estilos de los "swatches" de color */
+.color-swatch {
+  border: 2px solid var(--color-plateado);
+}
+
+/* 10. Estilos Carrusel de Producto */
+.product-carousel-item img { 
+  width: 100%; 
+  height: 500px; 
+  object-fit: cover; 
+  border-radius: .375rem; 
+}
+
+/* 11. Estilos Carrusel Principal*/
+.index-carousel-item {
+  height: 60vh; 
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  background-size: cover;
+}
+.index-carousel-caption h5 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+.index-carousel-caption p {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
